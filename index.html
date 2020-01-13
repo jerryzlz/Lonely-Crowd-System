@@ -22,10 +22,25 @@
             font-style: normal;
             font-display: block;
         }
+        html {
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+        body {
+            display: table-cell;
+            height: 100%;
+            width: 100%;
+        }
+
+/*content1 BEGIN*/
         #nav{
+            float: left;
             height: 60px;
+            width: 100%;
             background-color: #808080;
             position: relative;
+            z-index: 999;
         }
         #n_icon{
             background-color: #000;
@@ -52,16 +67,17 @@
             line-height: 60px;
             position: absolute;
         }
-        #n_right span{
+        #n_right a{
             margin-left: 10px;
+            text-decoration: none;  
         }
-        #n_right span:hover{
+        #n_right a:hover{
             cursor: pointer;
             background-color: #000;
         }
         #content{
             background-color: #000;
-            height: 1000px;
+            height: 100%;
             width: 100%;
         }
         #c_logo{
@@ -80,6 +96,7 @@
             height:50px;
             width: 550px;
             font-size: 25px;
+            color: #808080;
         }
         #c_button{
             font-family: 'icomoon';
@@ -128,32 +145,243 @@
             cursor: pointer;
             color: #ccc;
         }
-        #bottom{
-            height: 40px;
-            width: 400px;
+/*content END*/
+
+/*content1 BEGIN*/
+        #content1{
+            background-color: #000;
+            height: 100%;
+            width: 100%;
+            display: none;
         }
+        #nav1{
+            padding-top: 60px;
+            height: 70px;
+            position: relative;
+            border-bottom: 1px solid #444;
+        }
+        #n1_icon{
+            background-color: #000;
+            background-image: url(images/sprite-small.png);
+            height: 50px;
+            width: 50px;
+            top: 70px;
+            left: 40px;
+            position: absolute;
+        }
+        #n1_search{
+            position: absolute;
+            width: 35%;
+            top: 75px;
+            left: 130px;
+        }
+        #c1_input{
+            float: left;
+            height:40px;
+            width: 85%;
+            font-size: 18px;
+            color: #000;
+        }
+        #c1_button{
+            font-family: 'icomoon';
+            font-size: 35px;
+            color: #fff;
+            height: 40px;
+            width: 15%;
+            background-color: #ccc;
+        }
+        #c1_button:hover{
+            cursor: pointer;
+            background-color: #808080;
+        }
+        #n1_right{
+            position: absolute;
+            top: 75px;
+            right: 15px;
+            width: 600px;
+        }
+        #n1_right_item{
+            margin-left: 50px;
+            width: 150px;
+            height: 40px;
+            float: left;
+            font-family: 'icomoon';
+            font-size: 37px;
+            color: #fff;
+        }
+        #n1_right_text{
+            float: right;
+            font-size: 23px;
+            text-align: right;
+        }
+        #n1_right_d_text{
+            float: right;
+            font-size: 9px;
+        }
+        #result{
+            position: relative;
+            margin: 50px auto 0 auto;
+            width: 40%;
+            height: 40%;
+            background-color: #fff;
+        }
+        #res{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+/*content1 END*/
+
+/*content2 BEGIN*/
+        #content2{
+            background-color: #000;
+            height: 100%;
+            width: 100%;
+            display: none;
+        }
+        #c2_logo{
+            margin: 0 auto;
+            padding-top: 250px;
+            width: 150px;
+            height: 150px;
+        }
+/*content2 END*/
     </style>
 </head>
 <body>
-    <div id="nav">
+    <div id="nav"><!--导航栏-->
         <div id="n_icon"></div>
         <div id="n_text">amazarashi - The Lonely Crowd System</div>
-        <div id="n_right"><span></span><span></span></div>
+        <div id="n_right"><a id="n_min"></a><a id="n_close"></a></div>
     </div>
-    <div id="content">
+    <div id="content"><!--主页-->
         <div id="c_logo"><img src="images/root.gif"></div>
         <div id="search">
-            <input type="text" id="c_input"><input type="button" value="" id="c_button">
+            <input type="text" id="c_input" value="死にたい"><input type="button" id="c_button" value="">
         </div>
         <div id="pb">
-            <span>Powered by </span><a href="https://twitter.com"></a>
+            <span>Powered by </span><a href="https://twitter.com" target="_blank"></a>
         </div>
         <div id="pb1">
-            <a href="https://github.com/jerryzlz" ></a>
-        </div>
-        <div id=bottom>
-
+            <a href="https://github.com/jerryzlz" target="_blank"></a>
         </div>
     </div>
+    <div id="content1"><!--打印页-->
+        <div id="nav1">
+            <div id="n1_icon"></div>
+            <div id="n1_search">
+                <input type="text" id="c1_input" value=""><input type="button" id="c1_button" value="">
+            </div>
+            <div id="n1_right">
+                <div id="n1_right_item">
+                    <a id="n1_twi"></a>
+                    <div id="n1_right_text">#N/A<br/><div id="n1_right_d_text">tweets</div></div>
+                </div>
+                <div id="n1_right_item">
+                    <a id="n1_number"></a>
+                    <div id="n1_right_text">1<br/><div id="n1_right_d_text">printed</div></div>
+                </div>
+                <div id="n1_right_item">
+                    <a id="n1_printer"></a>
+                    <div id="n1_right_text">#N/A<br/><div id="n1_right_d_text">printer</div></div>
+                </div>
+            </div>
+        </div>
+        <div id="result">
+            <div id="res"></div>
+            <div id="res1"></div>
+            <div id="res2"></div>
+            <div id="res3"></div>
+            <div id="res4"></div>
+            <div id="res5"></div>
+            <div id="res6"></div>
+            <div id="res7"></div>
+            <div id="res8"></div>
+            <div id="res9"></div>
+        </div>
+        <div id="copyright"></div>
+    </div>
+    <div id="content2"><!--载入页-->
+        <div id="c2_logo"><img src="images/root.gif"></div>
+        
+    </div>
+    <script>
+        var ipt = document.querySelector('#c_input');
+        var ipt1 = document.querySelector('#c1_input');
+        var btn = document.querySelector('#c_button');
+        var btn1 = document.querySelector('#c1_button');
+        var c = document.querySelector('#content');
+        var c1 = document.querySelector('#content1');
+        var c2 = document.querySelector('#content2');
+        var min = document.querySelector('#n_min');
+        var coe = document.querySelector('#n_close');
+        var result = document.querySelector('#res');
+
+        /*首页*/
+        ipt.onfocus = function(){
+            if (ipt.value == '死にたい'){
+                ipt.style.color = '#000';
+                ipt.value = '';
+            }
+        }
+        ipt.onblur = function(){
+            if (ipt.value == ''){
+                ipt.style.color = '#808080';
+                ipt.value = '死にたい';
+            }
+        }
+
+        /*加载页面展示*/
+        var close = function(){
+            c2.style.display = 'none';
+        }
+        var show = function(){
+            c1.style.display = 'block';
+        }
+        var loading = function(){
+            c2.style.display = 'block';
+            setTimeout("close()",3000 );
+            setTimeout("show()",3000);
+        }
+        var search = function(){
+            c.style.display = 'none';
+            c1.style.display = 'none';
+            var text = ipt.value;
+            result.innerHTML = text;
+            loading();
+            radm();
+        }
+        var search1 = function(){
+            c.style.display = 'none';
+            c1.style.display = 'none';
+            var text = ipt1.value;
+            result.innerHTML = text;
+            loading();
+            radm();
+        }
+
+        /*随机生成*/
+        var radm = function(){
+            //var compass = Math.random() * (3-1)+1;
+            var psto_x = Math.random() * (80-1)+1;
+            var psto_y = Math.random() * (90-1)+1;
+            var size = Math.random() * (35-10)+10;
+            result.style.top = psto_y+'%';
+            result.style.left = psto_x+'%';
+            result.style.fontSize = size+'px';
+        }
+
+        /*关闭最小化按钮*/
+        var back = function(){
+            c.style.display = 'block';
+            c1.style.display = 'none';
+        }
+
+        /*按钮*/
+        btn.onclick = search;
+        btn1.onclick = search1;
+        min.onclick = back;
+        coe.onclick = back;
+    </script>
 </body>
 </html>
