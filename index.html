@@ -56,6 +56,7 @@
             margin-left: 80px;
             line-height: 60px;
             color: #fff;
+            font-family: '微软雅黑','msyh';
         }
         #n_right{
             color: #fff;
@@ -97,6 +98,7 @@
             width: 550px;
             font-size: 25px;
             color: #808080;
+            font-family: '微软雅黑','msyh';
         }
         #c_button{
             font-family: 'icomoon';
@@ -171,23 +173,24 @@
         }
         #n1_search{
             position: absolute;
-            width: 35%;
+            width: 430px;
             top: 75px;
             left: 130px;
         }
         #c1_input{
             float: left;
             height:40px;
-            width: 85%;
+            width: 320px;
             font-size: 18px;
             color: #000;
+            font-family: '微软雅黑','msyh';
         }
         #c1_button{
             font-family: 'icomoon';
             font-size: 35px;
             color: #fff;
             height: 40px;
-            width: 15%;
+            width: 90px;
             background-color: #ccc;
         }
         #c1_button:hover{
@@ -213,22 +216,26 @@
             float: right;
             font-size: 23px;
             text-align: right;
+            font-family: '微软雅黑','msyh';
         }
         #n1_right_d_text{
             float: right;
             font-size: 9px;
+            font-family: '微软雅黑','msyh';
         }
         #result{
             position: relative;
             margin: 50px auto 0 auto;
-            width: 40%;
-            height: 40%;
+            width: 45%;
+            height: 45%;
             background-color: #fff;
+            font-family: '微软雅黑','msyh';
         }
         #res{
             position: absolute;
             top: 0;
             left: 0;
+            transform:rotate(0deg);
         }
 /*content1 END*/
 
@@ -294,10 +301,6 @@
             <div id="res3"></div>
             <div id="res4"></div>
             <div id="res5"></div>
-            <div id="res6"></div>
-            <div id="res7"></div>
-            <div id="res8"></div>
-            <div id="res9"></div>
         </div>
         <div id="copyright"></div>
     </div>
@@ -316,6 +319,11 @@
         var min = document.querySelector('#n_min');
         var coe = document.querySelector('#n_close');
         var result = document.querySelector('#res');
+        var result1 = document.querySelector('#res1');
+        var result2 = document.querySelector('#res2');
+        var result3 = document.querySelector('#res3');
+        var result4 = document.querySelector('#res4');
+        var result5 = document.querySelector('#res5');
 
         /*首页*/
         ipt.onfocus = function(){
@@ -340,14 +348,15 @@
         }
         var loading = function(){
             c2.style.display = 'block';
-            setTimeout("close()",3000 );
-            setTimeout("show()",3000);
+            setTimeout("close()",2000);
+            setTimeout("show()",2000);
         }
         var search = function(){
             c.style.display = 'none';
             c1.style.display = 'none';
             var text = ipt.value;
             result.innerHTML = text;
+            ipt1.value = text;
             loading();
             radm();
         }
@@ -362,13 +371,37 @@
 
         /*随机生成*/
         var radm = function(){
-            //var compass = Math.random() * (3-1)+1;
+            var compass = Math.random() * (3-1)+1;
             var psto_x = Math.random() * (80-1)+1;
             var psto_y = Math.random() * (90-1)+1;
             var size = Math.random() * (35-10)+10;
+            console.log(Math.round(compass));
             result.style.top = psto_y+'%';
             result.style.left = psto_x+'%';
             result.style.fontSize = size+'px';
+            result.style.transform="rotate(0deg)";
+            if (Math.round(compass)==1){
+                result.style.transform="rotate(90deg)";
+            }
+            if (Math.round(compass)==3){
+                result.style.transform="rotate(-90deg)";
+            }
+        }
+
+        /*随机断句*/
+        if (ipt1.value.length>10){
+            //var sentence = ipt1.split("，");
+            var r1 = Math.random() * (6-1)+1;
+            var r2 = Math.random() * (8-6)+6;
+            var r3 = Math.random() * (10-8)+8;
+            var r4 = Math.random() * (15-10)+10;
+            var r5 = Math.random() * (20-15)+15;
+            var result = ipt1.slice(0,r1);
+            var result1 = ipt1.slice(r1,r2);
+            var result2 = ipt1.slice(r2,r3);
+            var result3 = ipt1.slice(r3,r4);
+            var result4 = ipt1.slice(r4,r5);
+            var result5 = ipt1.slice(r5,ipt1.value.length-1);
         }
 
         /*关闭最小化按钮*/
