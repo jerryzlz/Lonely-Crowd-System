@@ -1,4 +1,14 @@
 # Lonely-Crowd-System
+
+website:https://other.xzsawq.top/amazarashi
+
+A doujin website be built base on this mv:https://www.youtube.com/watch?v=B2HsdgVQ-cc
+同人サイトがこのMVに基づいて構築される:https://www.youtube.com/watch?v=B2HsdgVQ-cc
+
+Split words function is unfinished, everyone who is interested in this to improve the project is welcomed.
+単語分割機能は未完成です。プロジェクトを改善するためにこれに興味があるの人を歓迎します。
+----------------------------------------------------------------------
+
 穴を掘っている　人生どこで間違えた
 穴を掘っている　自暴自棄にスコップを突き立てる
 風が唸る森　夜鷹なんかが鳴いちゃってさ
